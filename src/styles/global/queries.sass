@@ -1,114 +1,56 @@
 @media screen and (max-width: 860px)
-  #app 
-    width: 100%
-
-  .steps-mobile 
-    display: flex
-  
-  .card
+.card
     width: 100%
     grid-template-columns: 1fr
-  
-    .form-group-select
-      gap: 15px
-      flex-direction: column
-
-      .form-group-radio
-        .radio-ui 
-          height: auto
-          flex-direction: row
-          justify-content: initial
-          width: 100%
-          gap: 20px
-
-    .steps-container
-      display: none
-
-    .step-form-details 
-      width: 520px 
-      margin: 0 auto
-
-
-@media screen and (max-width: 768px) 
-
-@media screen and (max-width: 600px)
-  #app 
-    align-items: start 
-  .card 
-    transform: translateY(100px)
-    top: 100px
-    display: unset
     height: auto
 
-    .step-form-details
-      width: 100%
-      padding: 10px 10px
+.form-group-select
+    gap: 15px
+    flex-direction: column
 
-    .form-buttons 
-      background: $cWhite
-      height: 80px
-      width: 100vw 
-      left: 50%
-      transform: translateX(-50%)
-      top: calc( 100vh - 190px )
-      padding: 0 15px
-
-  .message 
-    padding: 50px 0
-
-    .dot 
-    height: 38px
-    width: 38px
-    border: 1px solid $cWhite
-    color: $cWhite
-    border-radius: 100%
-    display: flex 
-    align-items: center
-    justify-content: center
-    font-size: 14px
-    font-weight: bold
-
-    .dot-active 
-    background: $lightBlue
-    color: black
-    border: 1px solid $lightBlue
-
-    .dot-details 
-    span 
-        color: rgba($cWhite, 0.5)
-        font-size: 16px 
-
-    p 
-        color: $cWhite 
-        font-weight: 600
-        font-size: 16px
-        margin-top: 5px
-        text-transform: uppercase
-    // STEPS MOBILE
-    .steps-mobile
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    width: 100%
-    background: url('../assets/images/bg-sidebar-mobile.svg')
-    background-size: cover 
-    background-repeat: no-repeat
-    height: 230px 
-    z-index: -1
-    display: none
-    justify-content: center
-    align-items: center
-
-    .steps-mobile-container
-        transform: translateY(-60px)
-        display: flex
-        justify-content: center
-        align-items: center
+    .form-group-radio
+    .radio-ui 
+        height: auto
+        flex-direction: row
+        justify-content: initial
+        width: 100%
         gap: 20px
-        
+.step-form-details 
+    padding: 10px 10px
 
+.steps-container
+    display: none
 
-    .steps 
-        .dot-details 
+.steps
+    .dot-details
         display: none
+    
+    
+// @media screen and (max-width: 768px) 
+
+// @media screen and (max-width: 600px)
+//   #app 
+//     align-items: start 
+    
+//     .message 
+//         padding: 50px 0
+
+//   .card 
+//     transform: translateY(100px)
+//     top: 100px
+//     display: unset
+//     height: auto
+
+//     .step-form-details
+//       width: 100%
+//       padding: 10px 10px
+
+//     .form-buttons 
+//       background: $cWhite
+//       height: 80px
+//       width: 100vw 
+//       left: 50%
+//       transform: translateX(-50%)
+//       top: calc( 100vh - 190px )
+//       padding: 0 15px
+
