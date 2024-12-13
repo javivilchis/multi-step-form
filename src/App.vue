@@ -1,26 +1,43 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="steps-mobile">
+    <div class="steps-mobile-container">
+      <Step v-for="step in steps" :key="step.id" :stepProp="step"/>
+    </div>
+  </div>
+  <MultiStep />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import MultiStep from './components/MultiStep.vue'
+import Step from './components/Steps/Steps.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+const steps = [
+    { 
+      id: 1, 
+      stepNumber: 1, 
+      stepTitle: 'Step 1',
+      stepDetail: 'Your Info'
+    },
+    { 
+      id: 2,
+      stepNumber: 2, 
+      stepTitle: 'Step 2',
+      stepDetail: 'Select Plan'
+    },
+    { 
+      id: 3,
+      stepNumber: 3, 
+      stepTitle: 'Step 3',
+      stepDetail: 'Add-ons'
+    },
+    { 
+      id: 4,
+      stepNumber: 4, 
+      stepTitle: 'Step 4',
+      stepDetail: 'Summary'
+    }
+  ]
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>

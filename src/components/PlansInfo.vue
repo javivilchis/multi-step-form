@@ -1,0 +1,99 @@
+<template>
+    <div class="step-description">
+        <h1>Select your plan</h1>
+        <p>You have an option of monthly or yearly billing.</p>
+    </div>
+    <form @submit.prevent="validateForm">
+        <div class="form-group-select">
+            <div class="form-group-radio" v-for="item in planList" :key="item.id">
+                <input type="radio" class="radio" :id="item.inputID" name="promo" v-model="formPlan" :value="item">
+                <label :for="item.planID" class="radio-ui">
+                    <img :src="item.planImage" :alt="item.planName" />
+                    <div>
+                        <p>{{ item.planName }}</p>
+                        <span v-if="!$store.state.newUser.formBill">{{ item.planPrice.monthly }}/mo</span>
+                        <span v-if="$store.state.newUser.formBill">${{ item.planPrice.yearly }}</span>
+                        <span v-if="$store.state.newUser.formBill" class="span-promo">2 months free</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="bill-plan">
+            <label class="form-group-checkbox">
+                <p>Monthly</p>
+                <input type="checkbox" class="check" v-model="formBill">
+                <span class="checkbox"></span>
+                <p>Yearly</p>
+            </label>
+        </div>
+
+        <div class="form-buttons">
+            <button class="btn-secondary" @click.self="goBack">Go Back</button>
+            <button class="btn btn-primary">Next Step</button>
+        </div>
+    </form>
+</template>
+
+<script setup>
+import { computed, ref } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
+
+const planList = ref([
+    {
+        id: 1,
+        planName: 'Arcade',
+        planPrice: {
+            monthly: 9,
+            yearly: 9 * (12 - 2)
+        },
+        planImage: 'https://tfi-bucket-storage.vercel.app/assets/icon-arcade.svg',
+        inputID: 'arcade'
+    },
+    {
+        id: 1,
+        planName: 'Advanced',
+        planPrice: {
+            monthly: 12,
+            yearly: 12 * (12 - 2)
+        },
+        planImage: 'https://tfi-bucket-storage.vercel.app/assets/icon-advanced.svg',
+        inputID: 'advanced'
+    },
+    {
+        id: 1,
+        planName: 'Pro',
+        planPrice: {
+            monthly: 15,
+            yearly: 15 * (12 - 2)
+        },
+        planImage: 'https://tfi-bucket-storage.vercel.app/assets/icon-pro.svg',
+        inputID: 'pro'
+    }
+])
+
+const formPlan = computed({
+    get(){
+        return store.state.newUser.formPlan
+    },
+    set(newPlan) {
+        return store.commit('setPlan', newPlan)
+    }
+})
+const formBill = computed({
+    get(){
+        return store.state.newUser.formBill
+    },
+    set(newBill) {
+        return store.commit('setBill', newBill)
+    }
+})
+const goBack = () => {
+    store.state.currentStep--
+}
+const validateForm = () => {
+
+    store.state.currentStep++
+}
+</script>

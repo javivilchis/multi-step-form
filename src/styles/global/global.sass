@@ -1,0 +1,433 @@
+*,html
+    margin: 0
+    padding: 0
+    box-sizing: 0
+body 
+    font-size: $fontBody
+    font-family: $font-primary
+    Background: $magnolia
+
+#app
+    height: 100vh
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    
+
+.btn
+    padding: 13px 25px
+    outline: none
+    border: none
+    background: $purplishBlue
+    color: $cWhite
+    border-radius: 4px
+    font-family: $font-primary
+    cursor: pointer
+    transition: all 0.3s
+    &:hover
+        background: $pastelBlue
+
+.card 
+    height: 550px 
+    width: 820px 
+    //width: 100%
+    background: $cWhite
+    position: relative
+    border-radius: 15px
+    box-shadow: 0px 4px 30px 5px rgba(0, 0, 0, 0.03)
+    padding: 10px
+    display: grid 
+    grid-template-columns: 270px 1fr
+
+    .steps-container
+        background: url('../assets/images/bg-sidebar-desktop.svg')
+        height: 90% 
+        border-radius: 10px
+        padding: 30px
+        background-repeat: no-repeat 
+        background-size: cover
+
+
+    .steps 
+        display: flex
+        gap: 20px
+        align-items: center
+        margin-bottom: 30px
+
+    .step-form-details
+        padding: 10px 50px
+        position: relative
+
+        // step description
+
+        .step-description
+            padding-top: 25px
+            h1
+                margin-bottom: 10px
+            
+            p
+                color: $coolGray
+                font-size: $fontBody
+                margin-bottom: 30px
+        // FORM buttons
+        .form-buttons 
+            position: absolute 
+            left: 0
+            bottom: 15px
+            padding: 0 50px
+            width: 100%
+            display: flex 
+            justify-content: space-between
+            align-items: center
+
+.dot  
+    height: 35px
+    width: 35px
+    border: 1px solid $cWhite
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 35px
+    color: $cWhite
+    font-weight: bold
+
+.dot-active
+    background: $lightBlue
+    color: $cBlack
+    border: 1px solid $lightBlue
+
+.dot-details
+    span
+        font-size: 16px
+        color: rgba($cWhite, .50)
+        text-transform: uppercase
+    p
+        color: $cWhite
+        font-weight: 600
+        font-size: 16px
+        margin-top: 5px
+        text-transform: uppercase
+
+// FORMS
+.form-group
+    display: flex
+    flex-direction: column
+    margin-bottom: 20px
+    input
+        weight: 100%
+        height: 45px
+        border: 1px solid rgba($cBlack, .1)
+        outline: none
+        padding: 10px 15px
+        color: $marineBlue
+        font-weight: 600
+        border-radius: 7px
+
+        &:focus
+            border: 1px solid $marineBlue
+    label
+        font-weight: 500
+        color: $marineBlue
+        margin-bottom: 5px
+
+    div
+        display: flex 
+        justify-content: space-between
+
+        span
+            font-size: 14px
+            font-weight: bold
+            color: $strawberryRed
+
+.form-group-select 
+    display: flex
+    justify-content: space-between
+    margin-bottom: 30px 
+
+    .form-group-radio 
+        position: relative
+        cursor: pointer
+
+        .radio  
+            position: absolute
+            opacity: 0
+            left: 0
+            top: 0
+            height: 100%
+            width: 100%
+            z-index: 2
+            cursor: pointer
+
+        .radio-ui
+            height: 150px
+            width: 115px
+            border: 1px solid $lightGray
+            display: block
+            padding: 12px
+            border-radius: 8px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+
+            img 
+                height: 35px
+                width: 35px
+            
+            p 
+                font-weight: bold
+                color: $marineBlue
+                margin-bottom: 3px 
+
+            span
+                color: $coolGray
+                font-size: 14px
+            
+            .span-promo: 
+                margin-top: 3px 
+                display: block
+                color: $marineBlue
+                font-size: 12px
+
+
+        .radio:checked + .radio-ui
+            border: 1px solid $purplishBlue
+            background: $magnolia
+        
+        .radio:hover + .radio-ui
+            border: 1px solid $purplishBlue
+
+.bill-plan
+    display: flex
+    justify-content: center
+    padding: 12px 0
+    background: $magnolia
+    border-radius: 7px
+    box-shadow: 0px 2px 2px 1px #eff1ff85
+
+    .form-group-checkbox
+        display: flex 
+        flex-direction: row
+        gap: 15px
+        cursor: pointer
+
+        .checkbox 
+            position: relative
+            height: 20px
+            width: 35px
+            background: $marineBlue
+            border-radius: 20px
+
+        .checkbox:before
+            content: ""
+            position: absolute
+            height: 12px
+            width: 12px
+            background: $cWhite
+            border-radius: 100%
+            left: 3px
+            top: 50%
+            transform: translateY(-50%)
+            transition: 0.2s ease
+
+        .check
+            opacity: 0
+            height: 1px
+            width: 1px
+            position: absolute
+            top: 0
+            left: 0
+
+    .check:checked + .checkbox::before
+        transform: translate(17px, -50%)  
+
+.form-group-check 
+    display: block
+    position: relative
+    cursor: pointer
+    border: 1px solid $purplishBlue
+    padding: 15px 20px
+    border-radius: 7px
+    background: $cWhite
+    margin-bottom: 20px
+
+
+    .form-group-check-container
+        cursor: pointer
+    
+    .adds-details
+        padding-left: 35px
+        display: flex 
+        align-items: center 
+        justify-content: space-between
+        p 
+            font-weight: bold
+            color: $marineBlue
+            margin-bottom: 3px
+
+        span
+            color: $coolGray
+            font-size: 14px
+
+        .adds-price
+            font-size: 14px
+            font-weight: 400
+            color: $purplishBlue
+
+    input
+        position: absolute
+        left: 0
+        top: 0
+        opacity: 0
+
+    .checkbox-icon
+        height: 19px
+        width: 19px
+        position: absolute
+        background: $cWhite
+        border-radius: 5px
+        border: 1px solid rgba($cBlack, .27)
+        top: 50% 
+        transform: translatyeY(-50%)
+        transition: all 0.3s
+
+    .checkbox-icon::after
+        left: 6px
+        top: 2px
+        height: 8px
+        width: 5px
+        border: solid $cWhite
+        border-width: 0 3px 3px 0
+        -webkit-transform: rotate(45deg)
+        -ms-transform: rotate(45deg)
+        transform: rotate(-45deg)
+        transition: all 0.1s
+
+    .form-group-check-container:hover input ~ .checkbox-icon
+        background: #f1f1f1
+
+    .form-group-check-container input:checked ~ .checkbox-icon
+        background: $purplishBlue
+
+    .checkbox-icon::after
+        content: ""
+        position: absolute
+        opacity: 0
+
+    .form-group-check-container input:checked ~ .checkbox-icon::after
+        opacity: 1
+        transform: rotate(45deg)
+
+    .form-group-check-container input:checked ~ .checkbox-icon
+        border: none
+
+.form-group-check:has(input:checked)
+    background: $magnolia
+    border: 1px solid $purplishBlue
+
+// SUMMARY
+.summary-box
+    background: $magnolia
+    padding: 20px
+    border-radius: 10px
+    border: 1px solid #eff1ff82
+    box-shadow: 0px 2px 2px 1px #eff1ff82
+
+    .bill-state
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 20px 
+        border-bottom: 1px solid $lightGray
+        margin-bottom: 20px
+
+        a 
+            text-decoration: underline
+            color: $coolGray
+            margin-top: 5px
+            display: block
+            cursor: pointer
+            font-size: 14px
+            transition: all 0.2s
+        &:hover
+            color: $purplishBlue
+
+        .bill
+            font-weight: 500
+            color: $marineBlue
+        .bill-price
+            font-weight: bold
+            color: $marineBlue  
+
+    .service-adds
+        display: flex 
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 20px
+
+        .service-name
+            color: $coolGray
+
+        .service-price
+            color: $marineBlue
+            font-weight: 500
+// BILLING TOTAL
+.bill-total
+    display: flex 
+    justify-content: space-between
+    padding: 20px
+
+    span
+        font-size: 14px
+        color: $coolGray
+
+    p 
+        font-size: 18px
+        font-weight: bold
+        color: $purplishBlue
+
+// MESSAGE
+.message
+    height: 100%
+    width: 100%
+    dipslay: flex 
+    flex-direction: column
+    align-items: center
+    align-content: center
+    
+
+    img 
+        margin: 0 auto 30px auto
+        display: block
+    h1 
+        text-align: center
+        margin-bottom: 15px
+        color: $marineBlue
+    p 
+        text-align: center
+        line-height: 25px
+        color: $coolGray
+        font-size: 16px
+// FORM buttons
+// .form-buttons 
+//     position: relative
+//     left: 0
+//     top: 15px
+//     padding: 0 50px
+//     width: 90%
+//     display: flex 
+//     justify-content: space-between
+//     align-items: center
+    
+
+.required 
+    border: 1px solid $strawberryRed !important
+
+.counter, h2 
+    position: absolute
+    top: 0
+
+h2 
+    top: 50px
+
+// 
